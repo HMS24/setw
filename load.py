@@ -15,5 +15,5 @@ def upload_file(filepath):
         aws_secret_access_key=secret_key
     )
 
-    s3_filename = f'original_{path.basename(filepath)}'
+    s3_filename = filepath
     s3.upload_file(filepath, bucket_name, s3_filename)
