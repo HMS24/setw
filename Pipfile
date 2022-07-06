@@ -9,10 +9,11 @@ requests = "*"
 loguru = "*"
 pydantic = "*"
 boto3 = "*"
+python-dotenv = "*"
 
 [dev-packages]
-jupyter = "*"
 autopep8 = "*"
+ipykernel = "*"
 
 [requires]
 python_version = "3.8"
