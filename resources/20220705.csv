@@ -1,4 +1,4 @@
-stock_id,stock_name,trade_volume,transaction,trade_value,opening_price,highest_price,lowest_price,closing_price,dir,change,last_best_bid_price,last_best_bid_volume,last_best_ask_price,last_best_ask_volume,price_earning_ratio
+證券代號,證券名稱,成交股數,成交筆數,成交金額,開盤價,最高價,最低價,收盤價,漲跌(+/-),漲跌價差,最後揭示買價,最後揭示買量,最後揭示賣價,最後揭示賣量,本益比
 0050,元大台灣50,"17,050,908","21,122","1,887,614,040",112.55,112.95,109.00,111.00,<p style= color:red>+</p>,0.55,111.00,79,111.05,6,0.00
 0051,元大中型100,"57,807",220,"2,915,452",50.25,51.20,49.85,50.35,<p style= color:red>+</p>,0.35,50.20,27,50.35,1,0.00
 0052,富邦科技,"1,032,321",611,"91,924,789",91.10,91.10,87.50,89.85,<p style= color:red>+</p>,1.05,89.80,3,89.85,26,0.00
