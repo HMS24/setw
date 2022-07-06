@@ -1,8 +1,6 @@
 import requests
 import pandas as pd
 
-from mapping import zh_en_map
-
 
 def generate_headers(referer=None):
     return {
@@ -38,7 +36,5 @@ def crawl(url, headers):
     except KeyError:
         data = result.get('data8', [])
         columns = result.get('fields8', [])
-
-    columns = translate_columns_languages(columns, zh_en_map)
 
     return pd.DataFrame(data=data, columns=columns)
