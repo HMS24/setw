@@ -1,14 +1,11 @@
-from os import path
-from configparser import ConfigParser
-
 import boto3
+from settings import get_settings
 
-parser = ConfigParser()
-parser.read('setup.conf')
+setting = get_settings()
 
-access_key = parser.get('aws_boto_credentials', 'access_key')
-secret_key = parser.get('aws_boto_credentials', 'secret_key')
-bucket_name = parser.get('aws_boto_credentials', 'bucket_name')
+access_key = setting['AWS_ACCESS_KEY']
+secret_key = setting['AWS_SECRET_KEY']
+bucket_name = setting['AWS_S3_BUCKET_NAME']
 
 
 def upload_file(filepath):
