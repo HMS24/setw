@@ -1,13 +1,7 @@
-from datetime import datetime
 import requests
 import pandas as pd
 
 from mapping import zh_en_map
-
-RESP_DATA_TYPE = 'json'
-CRAWL_TYPE = 'ALLBUT0999'
-BASE_URL = 'https://www.twse.com.tw'
-LANGUAGE = 'zh'
 
 
 def generate_headers(referer=None):
@@ -48,20 +42,3 @@ def crawl(url, headers):
     columns = translate_columns_languages(columns, zh_en_map)
 
     return pd.DataFrame(data=data, columns=columns)
-
-
-def main():
-    now = datetime.now()
-    # date_str = now.date().strftime('%Y%m%d')
-    timestamp_milliseconds = int(now.timestamp() * 1000)
-
-    url = f'{BASE_URL}/{LANGUAGE}/exchangeReport/MI_INDEX?response={RESP_DATA_TYPE}&type={CRAWL_TYPE}&date={20220704}&_={timestamp_milliseconds}'
-    headers = generate_headers(
-        referer=f'{BASE_URL}/{LANGUAGE}/page/trading/exchange/MI_INDEX.html'
-    )
-
-    df = crawl(url, headers)
-
-
-if __name__ == '__main__':
-    main()
