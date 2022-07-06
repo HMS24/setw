@@ -1,7 +1,7 @@
 # SETW
 
 ## 用途
-* 上市櫃股票價格
+* 單日上市櫃股票價格 [done]
 
 ## todo
-* config + env
+* ~~config + env~~
