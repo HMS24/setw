@@ -2,7 +2,7 @@ import requests
 import pandas as pd
 
 
-def generate_headers(referer=None):
+def generate_headers():
     return {
         "Accept": "application/json, text/javascript, */*; q=0.01",
         "Accept-Encoding": "gzip, deflate, br",
@@ -10,7 +10,7 @@ def generate_headers(referer=None):
         "Connection": "keep-alive",
         "DNT": "1",
         "Host": "www.twse.com.tw",
-        "Referer": referer,
+        "Referer": "https://www.twse.com.tw/zh/page/trading/exchange/MI_INDEX.html",
         "sec-ch-ua": '" Not;A Brand";v="99", "Microsoft Edge";v="103", "Chromium";v="103"',
         "sec-ch-ua-mobile": "?0",
         "sec-ch-ua-platform": "macOS",
@@ -26,8 +26,8 @@ def translate_columns_languages(columns, mapper):
     return [mapper[col] for col in columns]
 
 
-def crawl(url, headers):
-    resp = requests.get(url=url, headers=headers)
+def crawl(url, **kwargs):
+    resp = requests.get(url, **kwargs)
     result = resp.json()
 
     try:

@@ -1,29 +1,22 @@
-from datetime import datetime
-
 from crawl import crawl, generate_headers
 from load import upload_file
+from settings import get_settings
 
-RESP_DATA_TYPE = 'json'
-CRAWL_TYPE = 'ALLBUT0999'
-BASE_URL = 'https://www.twse.com.tw'
-LANGUAGE = 'zh'
-EXPORT_FOLDER = 'resources'
-EXPORT_DATA_TYPE = 'csv'
+setting = get_settings()
+twse = setting['twse']
+export = setting['export']
+
+url = twse['URL']
+params = twse['PARAMS']
+date_str = params['date']
+export_folder = export['FOLDER']
+export_data_type = export['DATA_TYPE']
 
 
 def main():
-    now = datetime.now()
-    # date_str = now.date().strftime('%Y%m%d')
-    date_str = '20220705'
-    timestamp_milliseconds = int(now.timestamp() * 1000)
+    df = crawl(url, params=params, headers=generate_headers())
 
-    url = f'{BASE_URL}/{LANGUAGE}/exchangeReport/MI_INDEX?response={RESP_DATA_TYPE}&type={CRAWL_TYPE}&date={date_str}&_={timestamp_milliseconds}'
-    headers = generate_headers(
-        referer=f'{BASE_URL}/{LANGUAGE}/page/trading/exchange/MI_INDEX.html')
-
-    df = crawl(url, headers)
-
-    filepath = f'{EXPORT_FOLDER}/{date_str}.{EXPORT_DATA_TYPE}'
+    filepath = f'{export_folder}/{date_str}.{export_data_type}'
     df.to_csv(filepath, index=False)
 
     upload_file(filepath)
