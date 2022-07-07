@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from settings import get_settings
-from load import upload_file
+from load import upload_file_to_s3
 from crawl import crawl
 
 setting = get_settings()
@@ -19,7 +19,7 @@ def main():
 
     df = crawl(url, date)
     df.to_csv(filepath, index=False)
-    upload_file(filepath)
+    upload_file_to_s3(filepath)
 
 
 if __name__ == '__main__':
