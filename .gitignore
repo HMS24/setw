@@ -78,3 +78,6 @@ ENV/
 
 # code style
 *.pylintrc
+
+# mock data
+resources/
