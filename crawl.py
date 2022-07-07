@@ -1,3 +1,4 @@
+from datetime import datetime
 import requests
 import pandas as pd
 
@@ -19,9 +20,19 @@ def _generate_headers(host=None, referer=None):
     return headers
 
 
-def crawl(url, **kwargs):
+def _generate_params(date):
+    params = {**twse['PARAMS']}
+    params['date'] = date
+    params['_'] = int(datetime.now().timestamp() * 1000)
+
+    return params
+
+
+def crawl(url, date):
     headers = _generate_headers(twse_host, twse_referer)
-    resp = requests.get(url=url, headers=headers, **kwargs)
+    params = _generate_params(date)
+
+    resp = requests.get(url=url, params=params, headers=headers)
     result = resp.json()
 
     try:

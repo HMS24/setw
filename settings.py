@@ -1,4 +1,3 @@
-from datetime import datetime
 from pydantic import BaseSettings, BaseModel
 
 
@@ -22,9 +21,6 @@ class TaiwanStockExchange(BaseModel):
     PARAMS = {
         'response': __RESP_TYPE,
         'type': __CONTENT_TYPE,
-        'date': '20220706',
-        # 'date': datetime.now().date().strftime('%Y%m%d'),
-        '_': int(datetime.now().timestamp() * 1000),
     }
 
 

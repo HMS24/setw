@@ -1,24 +1,24 @@
-from crawl import crawl
-from load import upload_file
+from datetime import datetime
+
 from settings import get_settings
+from load import upload_file
+from crawl import crawl
 
 setting = get_settings()
 twse = setting['twse']
 export_file = setting['export_file']
 
 url = twse['URL']
-params = twse['PARAMS']
-date_str = params['date']
 export_folder = export_file['FOLDER']
 export_data_type = export_file['DATA_TYPE']
 
 
 def main():
-    df = crawl(url=url, params=params)
+    date = datetime.now().date().strftime('%Y%m%d')
+    filepath = f'{export_folder}/{date}.{export_data_type}'
 
-    filepath = f'{export_folder}/{date_str}.{export_data_type}'
+    df = crawl(url, date)
     df.to_csv(filepath, index=False)
-
     upload_file(filepath)
 
 
