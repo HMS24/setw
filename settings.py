@@ -1,13 +1,6 @@
 from pydantic import BaseSettings, BaseModel
 
 
-class AWS(BaseModel):
-    AWS_ACCOUNT_ID: str = None
-    AWS_ACCESS_KEY: str = None
-    AWS_SECRET_KEY: str = None
-    AWS_S3_BUCKET_NAME: str = None
-
-
 class TaiwanStockExchange(BaseModel):
     HOST = 'www.twse.com.tw'
     REFERER = f'https://{HOST}/zh/page/trading/exchange/MI_INDEX.html'
@@ -48,7 +41,11 @@ class BaseHeaders(BaseModel):
 
 
 class Settings(BaseSettings):
-    aws: AWS = AWS()
+    AWS_ACCOUNT_ID: str
+    AWS_ACCESS_KEY: str
+    AWS_SECRET_KEY: str
+    AWS_S3_BUCKET_NAME: str
+
     twse:  TaiwanStockExchange = TaiwanStockExchange()
     base_headers: BaseHeaders = BaseHeaders()
     export_file:  ExportFile = ExportFile()
