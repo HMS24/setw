@@ -5,7 +5,7 @@ def _translate_columns_languages(columns, mapper):
     return [mapper[col] for col in columns]
 
 
-def transform(df):
+def transform(df, date):
     df = df.copy()
     df.columns = _translate_columns_languages(df.columns, zh_en_map)
     df['dir'] = (df['dir']
@@ -46,4 +46,5 @@ def transform(df):
                    .astype(float))
 
     df = df.fillna('')
+    df['date'] = date
     return df
