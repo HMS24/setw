@@ -1,8 +1,17 @@
+from pandas import DataFrame
 from mapping import zh_en_map
+from type_schemas import TaiwanStockExchange
 
 
 def _translate_columns_languages(columns, mapper):
     return [mapper[col] for col in columns]
+
+
+def _cast_type(df, type_schema):
+    df_dict = df.to_dict('records')
+    casted = [type_schema(**item).__dict__ for item in df_dict]
+
+    return DataFrame(casted)
 
 
 def transform(df, date):
@@ -28,4 +37,6 @@ def transform(df, date):
 
     df = df.fillna('')
     df['date'] = date
+    df = _cast_type(df, TaiwanStockExchange)
+
     return df
