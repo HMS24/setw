@@ -23,7 +23,6 @@ def main():
     df.to_csv(filepath, index=False)
     upload_file_to_s3(filepath)
     df = transform(df, date)
-    # validate(df, schema)
     # to_rds
 
 
