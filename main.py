@@ -18,7 +18,7 @@ export_data_type = export_file['DATA_TYPE']
 
 
 def main():
-    start_date, end_date = sys.argv[1:]
+    start_date, end_date, *_ = sys.argv[1:]
     date_range = generate_date_range(start_date, end_date)
 
     for date in date_range:
