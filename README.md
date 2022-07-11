@@ -8,8 +8,8 @@
 * settings + dotenv [done]
 * 從 s3 下載 [x] 
 * 從 export folder 讀取即可 [v]
-* 轉換欄位中文至英文
-* 資料格式整理
+* 轉換欄位中文至英文 [done]
+* 資料格式整理 [done]
 * 新增資料表
     * daily
 * load into rds
