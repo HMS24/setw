@@ -81,6 +81,7 @@ ENV/
 
 # mock data
 resources/
+archives/
 
 # database
 mysql/

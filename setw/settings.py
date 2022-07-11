@@ -18,7 +18,7 @@ class TaiwanStockExchange(BaseModel):
 
 
 class ExportFile(BaseModel):
-    FOLDER = 'resources'
+    FOLDER = 'archives'
     DATA_TYPE = 'csv'
 
 
