@@ -11,6 +11,8 @@ pydantic = "*"
 boto3 = "*"
 python-dotenv = "*"
 setw = {editable = true, path = "."}
+sqlalchemy = "*"
+pymysql = "*"
 
 [dev-packages]
 autopep8 = "*"
