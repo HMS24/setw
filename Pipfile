@@ -10,6 +10,7 @@ loguru = "*"
 pydantic = "*"
 boto3 = "*"
 python-dotenv = "*"
+setw = {editable = true, path = "."}
 
 [dev-packages]
 autopep8 = "*"
