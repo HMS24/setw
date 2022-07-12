@@ -79,9 +79,10 @@ ENV/
 # code style
 *.pylintrc
 
-# mock data
+# mock data & uncessarily folders
 resources/
 archives/
+temp/
 
 # database
 mysql/
