@@ -1,6 +1,7 @@
 from pandas import DataFrame
-from mapping import zh_en_map
-from type_schemas import TaiwanStockExchange
+
+from setw.crawler.mapping import zh_en_map
+from setw.crawler.type_schemas import TaiwanStockExchange
 
 
 def _translate_columns_languages(columns, mapper):

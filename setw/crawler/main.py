@@ -2,11 +2,11 @@ import sys
 import time
 from loguru import logger
 
-from settings import get_settings
-from load import upload_file_to_s3
-from crawl import crawl
-from transform import transform
-from utils import generate_date_range
+from setw.settings import get_settings
+from setw.crawler.load import upload_file_to_s3
+from setw.crawler.crawl import crawl
+from setw.crawler.transform import transform
+from setw.crawler.utils import generate_date_range
 
 setting = get_settings()
 twse = setting['twse']
@@ -38,4 +38,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    # main()

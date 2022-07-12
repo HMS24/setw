@@ -1,5 +1,5 @@
 import boto3
-from settings import get_settings
+from setw.settings import get_settings
 
 setting = get_settings()
 

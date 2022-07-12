@@ -2,7 +2,7 @@ from datetime import datetime
 import requests
 import pandas as pd
 
-from settings import get_settings
+from setw.settings import get_settings
 
 setting = get_settings()
 twse = setting['twse']
