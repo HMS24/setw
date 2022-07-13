@@ -1,7 +1,7 @@
 from pandas import DataFrame
 
-from setw.crawler.mapper import zh_en_map
-from setw.crawler.type_schemas import TaiwanStockExchange
+from setw.pipeline.mapper import zh_en_map
+from setw.pipeline.type_schemas import TaiwanStockExchange
 
 
 def _translate_columns_languages(columns, mapper):
