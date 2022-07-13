@@ -46,6 +46,8 @@ class Settings(BaseSettings):
     AWS_SECRET_KEY: str
     AWS_S3_BUCKET_NAME: str
 
+    DATABASE_URI: str
+
     twse:  TaiwanStockExchange = TaiwanStockExchange()
     base_headers: BaseHeaders = BaseHeaders()
     export_file:  ExportFile = ExportFile()
