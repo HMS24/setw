@@ -1,6 +1,6 @@
 from pandas import DataFrame
 
-from setw.crawler.mapping import zh_en_map
+from setw.crawler.mapper import zh_en_map
 from setw.crawler.type_schemas import TaiwanStockExchange
 
 
