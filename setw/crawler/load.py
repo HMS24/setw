@@ -1,19 +1,16 @@
-import boto3
-from setw.settings import get_settings
+from setw.database.database import Database
+from setw.database.repositories import StockPriceRepository
+from setw.database.services import StockPriceService
 
-setting = get_settings()
+db = Database(
+    uri='mysql+pymysql://{}:{}@{}:{}/{}?charset=utf8mb4',
+)
+db.create_tables()
 
-access_key = setting['AWS_ACCESS_KEY']
-secret_key = setting['AWS_SECRET_KEY']
-bucket_name = setting['AWS_S3_BUCKET_NAME']
 
-
-def upload_file_to_s3(filepath):
-    s3 = boto3.client(
-        's3',
-        aws_access_key_id=access_key,
-        aws_secret_access_key=secret_key
+def load_into_mysql(df):
+    stock_price_service = StockPriceService(
+        session_factory=db.session,
+        repository_class=StockPriceRepository,
     )
-
-    s3_filename = filepath
-    s3.upload_file(filepath, bucket_name, s3_filename)
+    stock_price_service.create_stock_prices(df.head(3).to_dict('records'))

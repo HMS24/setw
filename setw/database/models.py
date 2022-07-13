@@ -1,7 +1,7 @@
-from setw.database.schemas import StockPrice as StockPriceSchema
+from setw.database.schemas import StockPriceSchema
 
 
-class StockPrice(StockPriceSchema):
+class StockPriceModel(StockPriceSchema):
 
     __tablename__ = 'stock_prices'
 
